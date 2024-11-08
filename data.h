@@ -2,7 +2,9 @@
 #include "GL/glew.h"
 #include "GameObjectFactory.h"
 #include "Camera.h"
-
+#include <IL/il.h>
+#include <IL/ilu.h>
+#include <IL/ilut.h>
 #include "GL/freeglut.h"
 #include "Light.h"
 #include "PhongMaterial.h"
