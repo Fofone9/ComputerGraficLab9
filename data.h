@@ -7,6 +7,7 @@
 #include <IL/ilut.h>
 #include "GL/freeglut.h"
 #include "Light.h"
+#include "Texture.h"
 #include "PhongMaterial.h"
 #include <fstream>
 #include <GL/gl.h>
@@ -25,14 +26,14 @@ using namespace glm;
 
 extern vector<GraphicObject> graphicObjects;
 extern vector<shared_ptr<PhongMaterial>> materials;
-
+extern Texture planeTexture;
 extern Camera camera;
 extern LARGE_INTEGER ticks, ticksPerSecond, lastChech, currentTime, frequency, StartCounter;
 extern Light light;
 extern vector<shared_ptr<Mesh>> meshes;
 extern int passabilityMap[21][21];
 // карта проходимости
-
+extern shared_ptr<GameObject> enemy[3];
 // список игровых объектов расположенных на карте
 extern shared_ptr<GameObject> mapObjects[21][21];
 extern shared_ptr<GameObject> player;

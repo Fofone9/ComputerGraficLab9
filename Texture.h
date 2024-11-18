@@ -1,5 +1,26 @@
 #pragma once
-#include "data.h"
+#include <iostream>
+#include <Windows.h>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <unordered_map>
+#include <string>
+
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include "GL/freeglut.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/hash.hpp>
+
+#include <IL/il.h>
+#include <IL/ilu.h>
+#include <IL/ilut.h>
+using namespace std;
 // оепевхякемхе дкъ нопедекемхъ пефхлю тхкэрпюжхх
 enum class TextureFilter {
 	POINT, // рнвевмюъ

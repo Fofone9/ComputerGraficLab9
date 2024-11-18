@@ -3,7 +3,7 @@
 using namespace std;
 using namespace glm;
 
-
+Texture planeTexture;
 Camera camera;
 
 LARGE_INTEGER ticks, ticksPerSecond, lastChech, currentTime, frequency, StartCounter;
@@ -35,7 +35,7 @@ int passabilityMap[21][21] = {
 // список игровых объектов расположенных на карте
 shared_ptr<GameObject> mapObjects[21][21];
 shared_ptr<GameObject> player;
-
+shared_ptr<GameObject> enemy[3];
 // графический объект для плоскости (частный случай)
 GraphicObject planeGraphicObject;
 
@@ -74,8 +74,17 @@ void initData() {
 	}
 	// инициализация главного героя
 	player = gameObjectFactory.create(GameObjectType::PLAYER, 9, -9);
+	for (int i = 0; i < 3; i++)
+	{
+		int xPos = rand() % 21, yPos = rand() % 21;
+		while (passabilityMap[xPos][yPos] != 0)
+			xPos = rand() % 21, yPos = rand() % 21;
+		enemy[i] = gameObjectFactory.create(GameObjectType::ENEMY, xPos - 10, yPos - 10);
+		passabilityMap[xPos][yPos] = 4;
+	}
 	// инициализация плоскости
-	planeGraphicObject.setPosition(vec3(0, -0.501, 0));
+	planeTexture.load(R"(data\textures\plane.jpg)");
+	planeGraphicObject.setPosition({ 0,-0.501,0 });
 	shared_ptr<Mesh> planeMesh = make_shared<Mesh>();
 	planeMesh->load("data\\meshes\\HighPolyPlane.obj");
 	planeGraphicObject.setMesh(planeMesh);

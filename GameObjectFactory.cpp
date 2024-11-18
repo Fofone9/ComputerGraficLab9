@@ -19,10 +19,7 @@ bool GameObjectFactory::init(string path)
 	{
 		return false;
 	}
-	// перебор всех ключей в записи и вывод пар [ключ : значение],
-// если значение является строкой
-	// перебор всех ключей в записи и вывод пар [ключ : значение],
-// если значение является строкой
+
 	for (auto itr = jsonFile.MemberBegin(); itr != jsonFile.MemberEnd(); ++itr) {
 		Mesh mesh;
 		mesh.load(jsonFile[itr->name.GetString()]["mesh"].GetString());
